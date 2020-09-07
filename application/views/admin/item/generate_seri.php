@@ -40,7 +40,7 @@ display: none;
                 <div class="row">
                     <input class="form-control" value="56" type="hidden" id="tipe_meter"></input>
                     <div class="col-md-3">
-                        <input class="form-control" type="text" id="myinput1" size="8" minlength="8" maxlength="8" autofocus></input>
+                        <input class="form-control" type="text" id="myinput1" size="8" minlength="8" maxlength="8" autofocus onkeyup="generateNamaFile();"></input>
                     </div>
                     <div class="col-md-3">
                         <input class="form-control" type="text" id="myinput2" size="8" minlength="8" maxlength="8"></input>
@@ -65,6 +65,7 @@ display: none;
             <div class="box-body">
                 <div class="row">
                     <div class="col-md-7">
+                        <input type="text" class="form-control" placeholder="Nama File Untuk (EXCEL / PDF)" id="nama-file"><br>
                         <table class="table table-bordered table-hover" id="no-seri-table">
                             <thead>
                                 <tr>
@@ -91,12 +92,11 @@ display: none;
                             <tbody>
                             </tbody>
                         </table>
-                        <label>Nama File Untuk (EXCEL | PDF)</label>
-                        <input type="text" class="form-control" placeholder="Nama File Untuk (EXCEL | PDF)" id="nama-file"><br>
+                        <input type="text" class="form-control" placeholder="search nomor seri" id="searchBox">
+                        <hr>
                         <label>Nama File Untuk Nedysis</label>
                         <input type="text" class="form-control" placeholder="Nama File Untuk Nedysis" id="nama-file-nedysis"><br>
                         <a href="#" style="width:100%" id="save-link" class="btn btn-success btn-flat">Generate Nedysis</a><br />
-                        <input type="text" class="form-control" placeholder="search nomor seri" id="searchBox">
                     </div>
                 </div>
             </div>
@@ -118,6 +118,16 @@ display: none;
     <script>
         var myinput1 = document.getElementById("myinput1");
         var myinput2 = document.getElementById("myinput2");
+
+        $(document).ready(function(){
+            
+            function generateNamaFile()
+            {
+                var x = document.getElementById("myinput1");
+                document.getElementById("nama-file").value = x.value;
+            }
+        });
+
         myinput1.onkeyup = function() {
             if (this.value.length === parseInt(this.attributes["maxlength"].value)) {
                 myinput2.focus();
