@@ -6,8 +6,6 @@ application/cache/*
 application/logs/*
 !application/logs/index.html
 
-!application/*/.htaccess
-
 assets/AdminLTE-2.4.18/*
 assets/vendor/*
 
