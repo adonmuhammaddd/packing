@@ -91,8 +91,9 @@ display: none;
                             <tbody>
                             </tbody>
                         </table>
+                        <input type="text" class="form-control" placeholder="Nama File" id="nama-file"><br>
+                        <a href="#" style="width:100%" id="save-link" class="btn btn-success btn-flat">Generate Nedysis</a><br />
                         <input type="text" class="form-control" placeholder="search nomor seri" id="searchBox">
-                        <a href="#" id="save-link">Download</a>
                     </div>
                 </div>
             </div>

@@ -17,6 +17,9 @@ var pushed = 0;
 var myinput1 = null;
 var myinput2 = null;
 var table;
+var fileName;
+var namaFile = $("#nama-file").val();
+var time = new Date();
 
 meter_type = $('#tipe_meter').val();
 console.log('Tipe Meter ========> ',meter_type);
@@ -155,7 +158,7 @@ function setNomerLot()
             var genapbro;
             var finalresult;
             var number = Array.from(my_inner.toString()).map(Number);
-            console.log('Number ===========> ', number)
+            // console.log('Number ===========> ', number)
             for (var i = 0; i < number.length; i++) {
                 // console.log(arr_inner[i].length);
                 if (i % 2 == 1) {
@@ -164,16 +167,16 @@ function setNomerLot()
                 arr_inner_ganjil.push(number[i]);
                 }
             }
-            console.log('Inner Genap ===========> ', arr_inner_genap)
-            console.log('Inner Ganjil ===========> ', arr_inner_ganjil)
+            // console.log('Inner Genap ===========> ', arr_inner_genap)
+            // console.log('Inner Ganjil ===========> ', arr_inner_ganjil)
             for (var j = 0; j < arr_inner_ganjil.length; j++) {
                 var sumganjil = arr_inner_ganjil.reduce(function(a, b) {
                 return a + b;
                 }, 0);
                 hasilganjil = sumganjil;
             }
-            console.log('Sum Ganjil ===========> ', sumganjil)
-            console.log('Hasil Ganjil ===========> ', hasilganjil)
+            // console.log('Sum Ganjil ===========> ', sumganjil)
+            // console.log('Hasil Ganjil ===========> ', hasilganjil)
 
             for (var i = 0; i < arr_inner_genap.length; i++) {
                 arr_inner_genap[i] = arr_inner_genap[i] * 2;
@@ -187,19 +190,19 @@ function setNomerLot()
             var hasilgenap = genapbro.reduce(function(a, b) {
                 return a + b;
             }, 0);
-            console.log('Genap Bro ===========> ', genapbro)
-            console.log('Hasil Genap ===========> ', hasilgenap)
+            // console.log('Genap Bro ===========> ', genapbro)
+            // console.log('Hasil Genap ===========> ', hasilgenap)
 
             var hitung = hasilganjil + hasilgenap;
-            console.log('Hitung ===========> ', hitung)
+            // console.log('Hitung ===========> ', hitung)
             var hasil = Array.from(hitung.toString()).map(Number);
-            console.log('Hasil ===========> ', hasil)
+            // console.log('Hasil ===========> ', hasil)
             if (hasil.length == 1) {
                 final = hasil * 9;
             } else {
                 final = hasil[1] * 9;
             }
-            console.log('Final ============> ', final);
+            // console.log('Final ============> ', final);
                 
             var finalresult = Array.from(final.toString()).map(Number);
             if (finalresult.length == 1) {
@@ -207,7 +210,7 @@ function setNomerLot()
             } else {
                 return finalresult[1];
             }
-            console.log('Final Result ============> ', finalresult);
+            // console.log('Final Result ============> ', finalresult);
         }
 
         var nomer = 0;
@@ -243,7 +246,16 @@ function setNomerLot()
         console.log(arr_kelompok);
         console.log('Nomor Seri ==========>', no_seri);
         
-        $( "#no-seri-table-temp tbody" ).append($( "<tr><td class='text-center'>"+pushed+"</td><td class='text-center'>"+$("#myinput1").val()+"</td><td class='text-center'>"+$("#myinput2").val()+"</td></tr>" ));
+        $( "#no-seri-table-temp tbody" ).append($( "<tr><td class='text-center'>"+pushed+"</td><td id='temp-value' class='text-center'>"+$("#myinput1").val()+"</td><td id='temp-value' class='text-center'>"+$("#myinput2").val()+"</td></tr>" ));
+
+        if (namaFile == '' || namaFile == null)
+        {
+            fileName = 'Packing List | '+time.getFullYear()+'-'+time.toLocaleString('default', { month: 'long' })+'-'+time.getDate();
+        }
+        else
+        {
+            fileName = namaFile;
+        }
 
         resetAll();
         showAlert();
@@ -255,7 +267,7 @@ function setNomerLot()
             title: "Berhasil menginputkan "+pushed+" kali",
             text: "Silahkan Masukan Nomor Seri Yang Lain",
             icon: "success",
-            timer: 2000,
+            timer: 1000,
             buttons: false
           });
     }
@@ -273,7 +285,30 @@ function inputToTable()
         paging:         false,
         dom: 'Bfrtip',
         buttons: [
-            { extend: 'copy', title: '', header: false}, 'csv', { extend : 'excel', title: null, header: false}, 'pdf', 'print'
+            { 
+                extend: 'copy', 
+                className: 'btn btn-flat btn-primary',
+                title: '', 
+                header: false
+            }, 
+            { 
+                extend : 'excel', 
+                className: 'btn btn-flat btn-primary',
+                title: fileName, 
+                header: false
+            },
+            { 
+                extend : 'print', 
+                className: 'btn btn-flat btn-primary',
+                title: fileName, 
+                header: false
+            },
+            { 
+                extend : 'pdf', 
+                className: 'btn btn-flat btn-primary',
+                title: fileName, 
+                header: false
+            },
         ],
         select: true,
         // lengthMenu: [
