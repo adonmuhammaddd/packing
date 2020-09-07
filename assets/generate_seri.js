@@ -254,7 +254,7 @@ function setNomerLot()
         }
         else
         {
-            fileName = namaFile;
+            fileName = namaFile+' | '+time.getFullYear()+'-'+time.toLocaleString('default', { month: 'long' })+'-'+time.getDate();
         }
 
         resetAll();

@@ -91,7 +91,10 @@ display: none;
                             <tbody>
                             </tbody>
                         </table>
-                        <input type="text" class="form-control" placeholder="Nama File" id="nama-file"><br>
+                        <label>Nama File Untuk (EXCEL | PDF)</label>
+                        <input type="text" class="form-control" placeholder="Nama File Untuk (EXCEL | PDF)" id="nama-file"><br>
+                        <label>Nama File Untuk Nedysis</label>
+                        <input type="text" class="form-control" placeholder="Nama File Untuk Nedysis" id="nama-file-nedysis"><br>
                         <a href="#" style="width:100%" id="save-link" class="btn btn-success btn-flat">Generate Nedysis</a><br />
                         <input type="text" class="form-control" placeholder="search nomor seri" id="searchBox">
                     </div>
@@ -130,6 +133,7 @@ display: none;
 {
   var retContent = [];
   var retString = '';
+  var namaFileNedysis = $("#nama-file-nedysis").val();
   $('tbody tr').each(function (idx, elem)
   {
     var elemText = [];
@@ -137,13 +141,13 @@ display: none;
     {
       elemText.push($(childElem).text());
     });
-    retContent.push(`(${elemText.join(',')})`);
+    retContent.push(`(${elemText.join('')})`);
   });
   retString = retContent.join(',\r\n');
 	var file = new Blob([retString], {type: 'text/plain'});
   var btn = $('#save-link');
   btn.attr("href", URL.createObjectURL(file));
-  btn.prop("download", "data.txt");
+  btn.prop("download", namaFileNedysis+".txt");
 })
         
     </script>
