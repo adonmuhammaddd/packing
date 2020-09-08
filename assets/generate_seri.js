@@ -23,8 +23,10 @@ var time = new Date();
 
 meter_type = $('#tipe_meter').val();
 console.log('Tipe Meter ========> ',meter_type);
-$('#myinput1').keyup(function() {
-    if ($(this).val().length >= 8) {
+$('#myinput1').keyup(function() 
+{
+    if ($(this).val().length >= 8) 
+    {
         tahun_bro = $(this).val().substring(0, 2);
         console.log('Kode Tahun ============> ', tahun_bro);
         nomerlot = $(this).val().substring(2, 5);
@@ -32,10 +34,13 @@ $('#myinput1').keyup(function() {
         from = parseInt($(this).val().substring(5));
         console.log('From ============> ', from);
         setNomerLot();
-  }
-})
-$('#myinput2').keyup(function() {
-    if ($(this).val().length >= 8) {
+    }
+});
+
+$('#myinput2').keyup(function() 
+{
+    if ($(this).val().length >= 8) 
+    {
         if ($('#myinput1').val().substring(4,5) != $('#myinput2').val().substring(4,5))
         {
             to = 999;
@@ -49,7 +54,7 @@ $('#myinput2').keyup(function() {
             console.log('To ============> ', to);
         }
   }
-})
+});
 // console.log('Input 1 ========> ',myinput1);
 // console.log('Input 2 ========> ',myinput2);
 
@@ -85,192 +90,189 @@ function setJumlahKelompok()
 }
 
 function setNomerLot()
+{
+    nomer_master = String(tahun_bro+nomerlot);
+    inner_bro = String(meter_type+nomer_master);
+
+    // console.log(nomer_lot);
+    console.log('Nomer Master ========> ', nomer_master);
+    console.log('Inner Bro ========> ', inner_bro);
+}
+
+function myFunction()
+{
+    pushed += 1;
+    console.log('Pushed ============> ', pushed)
+    for (var i = 1; i < jumlah_kelompok + 1; i++)
     {
-        nomer_master = String(tahun_bro+nomerlot);
-        inner_bro = String(meter_type+nomer_master);
-
-        // console.log(nomer_lot);
-        console.log('Nomer Master ========> ', nomer_master);
-        console.log('Inner Bro ========> ', inner_bro);
-    }
-
-    function myFunction()
-    {
-        pushed += 1;
-        console.log('Pushed ============> ', pushed)
-        for (var i = 1; i < jumlah_kelompok + 1; i++)
+        if(i < 10 && i < 100)
         {
-            if(i < 10 && i < 100)
-            {
-                arr_kelompok.push({master : nomer_master+"00" +i, inner_list:[]});
-            }
-            else if(i > 9 && i <100 )
-            {
-                arr_kelompok.push({master : nomer_master+"0" + i, inner_list:[]});
-            }
-            else
-            {
-                arr_kelompok.push({master : nomer_master+String(i), inner_list:[]});
-            }
+            arr_kelompok.push({master : nomer_master+"00" +i, inner_list:[]});
         }
-
-        var count = 0;
-        for (var i=0; i<arr_kelompok.length;i++)
+        else if(i > 9 && i <100 )
         {
-            for (var k=1; k<9;k++)
-            {
-                // var random_belakang_inner = Math.floor(Math.random() * 10);
-                count++
-                if(count < 10 && count < 100)
-                {
-                    var my_inner1 = inner_bro+"00"+count;
-                    arr_kelompok[i].inner_list.push({inner : my_inner1 + calculateLastInner(my_inner1), master:arr_kelompok[i].master})
-                }
-                else if(count > 9 && count <100 )
-                {
-                    var my_inner2 = inner_bro+"0"+count;
-                    arr_kelompok[i].inner_list.push({inner :  my_inner2 + calculateLastInner(my_inner2), master:arr_kelompok[i].master})
-                }
-                else if(count == 1000 )
-                {
-                    //arr_kelompok[i].inner_list.splice(i, 1);
-                    var my_inner3 = inner_bro+"000";
-                    arr_kelompok[i].inner_list.push({inner :  my_inner3 + calculateLastInner(my_inner3), master:arr_kelompok[i].master})
-                }
-                else
-                {
-                    var my_inner4 = inner_bro+count;
-                    arr_kelompok[i].inner_list.push({inner : my_inner4 + calculateLastInner(my_inner4), master:arr_kelompok[i].master})
-                }
-            }
-        }
-
-        function calculateLastInner(my_inner) {
-
-
-            var arr_inner_genap = [];
-            var arr_inner_ganjil = [];
-            var arr_kali_genap = [];
-            var arr_kali_ganjil = [];
-            var genap;
-            var ganjil;
-            var final;
-            var genapbro;
-            var finalresult;
-            var number = Array.from(my_inner.toString()).map(Number);
-            // console.log('Number ===========> ', number)
-            for (var i = 0; i < number.length; i++) {
-                // console.log(arr_inner[i].length);
-                if (i % 2 == 1) {
-                arr_inner_genap.push(number[i]);
-                } else {
-                arr_inner_ganjil.push(number[i]);
-                }
-            }
-            // console.log('Inner Genap ===========> ', arr_inner_genap)
-            // console.log('Inner Ganjil ===========> ', arr_inner_ganjil)
-            for (var j = 0; j < arr_inner_ganjil.length; j++) {
-                var sumganjil = arr_inner_ganjil.reduce(function(a, b) {
-                return a + b;
-                }, 0);
-                hasilganjil = sumganjil;
-            }
-            // console.log('Sum Ganjil ===========> ', sumganjil)
-            // console.log('Hasil Ganjil ===========> ', hasilganjil)
-
-            for (var i = 0; i < arr_inner_genap.length; i++) {
-                arr_inner_genap[i] = arr_inner_genap[i] * 2;
-                genapbro = arr_inner_genap;
-            }
-            for (var i = 0; i < genapbro.length; i++) {
-                if (genapbro[i] > 9) {
-                genapbro[i] = genapbro[i] - 9;
-                }
-            }
-            var hasilgenap = genapbro.reduce(function(a, b) {
-                return a + b;
-            }, 0);
-            // console.log('Genap Bro ===========> ', genapbro)
-            // console.log('Hasil Genap ===========> ', hasilgenap)
-
-            var hitung = hasilganjil + hasilgenap;
-            // console.log('Hitung ===========> ', hitung)
-            var hasil = Array.from(hitung.toString()).map(Number);
-            // console.log('Hasil ===========> ', hasil)
-            if (hasil.length == 1) {
-                final = hasil * 9;
-            } else {
-                final = hasil[1] * 9;
-            }
-            // console.log('Final ============> ', final);
-                
-            var finalresult = Array.from(final.toString()).map(Number);
-            if (finalresult.length == 1) {
-                return finalresult;
-            } else {
-                return finalresult[1];
-            }
-            // console.log('Final Result ============> ', finalresult);
-        }
-
-        var nomer = 0;
-
-        for (var i in arr_kelompok)
-        {
-            for (var j in arr_kelompok[i].inner_list)
-            {
-                // console.log('Array Kelompok =========> ', arr_kelompok[i])
-                // console.log('Inner List =========> ', arr_kelompok[i].inner_list[j])
-                var inner_sub = arr_kelompok[i].inner_list[j].inner.substring(7, 10);
-                if (parseInt(inner_sub) >= parseInt(from) && parseInt(inner_sub) <= parseInt(to))
-                {
-                    nomer += 1;
-                    no_seri.push({
-                        // nomor : nomer, 
-                        seri: arr_kelompok[i].inner_list[j].inner.substring(0, 10), 
-                        id : arr_kelompok[i].inner_list[j].inner.substring(10, 11)});
-                    // console.log('inner sub yang masuk ===>',inner_sub);
-                }
-            }
-        }
-        
-        if ($('#myinput1').val().substring(4,5) != $('#myinput2').val().substring(4,5))
-        {
-            var this_inner = inner_beda_lot+"000";
-            no_seri.push({
-                seri: this_inner,
-                id: calculateLastInner(this_inner)
-            });
-        }
-
-        console.log(arr_kelompok);
-        console.log('Nomor Seri ==========>', no_seri);
-        
-        $( "#no-seri-table-temp tbody" ).append($( "<tr><td class='text-center'>"+pushed+"</td><td id='temp-value' class='text-center'>"+$("#myinput1").val()+"</td><td id='temp-value' class='text-center'>"+$("#myinput2").val()+"</td></tr>" ));
-
-        if (namaFile == '' || namaFile == null)
-        {
-            fileName = 'Packing List | '+time.getFullYear()+'-'+time.toLocaleString('default', { month: 'long' })+'-'+time.getDate();
+            arr_kelompok.push({master : nomer_master+"0" + i, inner_list:[]});
         }
         else
         {
-            fileName = namaFile+' | '+time.getFullYear()+'-'+time.toLocaleString('default', { month: 'long' })+'-'+time.getDate();
+            arr_kelompok.push({master : nomer_master+String(i), inner_list:[]});
         }
-
-        resetAll();
-        showAlert();
     }
 
-    function showAlert()
+    var count = 0;
+    for (var i=0; i<arr_kelompok.length;i++)
     {
-        swal({
-            title: "Berhasil menginputkan "+pushed+" kali",
-            text: "Silahkan Masukan Nomor Seri Yang Lain",
-            icon: "success",
-            timer: 1000,
-            buttons: false
-          });
+        for (var k=1; k<9;k++)
+        {
+            // var random_belakang_inner = Math.floor(Math.random() * 10);
+            count++
+            if(count < 10 && count < 100)
+            {
+                var my_inner1 = inner_bro+"00"+count;
+                arr_kelompok[i].inner_list.push({inner : my_inner1 + calculateLastInner(my_inner1), master:arr_kelompok[i].master})
+            }
+            else if(count > 9 && count <100 )
+            {
+                var my_inner2 = inner_bro+"0"+count;
+                arr_kelompok[i].inner_list.push({inner :  my_inner2 + calculateLastInner(my_inner2), master:arr_kelompok[i].master})
+            }
+            else if(count == 1000 )
+            {
+                //arr_kelompok[i].inner_list.splice(i, 1);
+                var my_inner3 = inner_bro+"000";
+                arr_kelompok[i].inner_list.push({inner :  my_inner3 + calculateLastInner(my_inner3), master:arr_kelompok[i].master})
+            }
+            else
+            {
+                var my_inner4 = inner_bro+count;
+                arr_kelompok[i].inner_list.push({inner : my_inner4 + calculateLastInner(my_inner4), master:arr_kelompok[i].master})
+            }
+        }
     }
+
+    function calculateLastInner(my_inner) 
+    {
+        var arr_inner_genap = [];
+        var arr_inner_ganjil = [];
+        var genap;
+        var ganjil;
+        var final;
+        var genapbro;
+        var finalresult;
+        var number = Array.from(my_inner.toString()).map(Number);
+        // console.log('Number ===========> ', number)
+        for (var i = 0; i < number.length; i++) {
+            // console.log(arr_inner[i].length);
+            if (i % 2 == 1) {
+            arr_inner_genap.push(number[i]);
+            } else {
+            arr_inner_ganjil.push(number[i]);
+            }
+        }
+        // console.log('Inner Genap ===========> ', arr_inner_genap)
+        // console.log('Inner Ganjil ===========> ', arr_inner_ganjil)
+        for (var j = 0; j < arr_inner_ganjil.length; j++) {
+            var sumganjil = arr_inner_ganjil.reduce(function(a, b) {
+            return a + b;
+            }, 0);
+            hasilganjil = sumganjil;
+        }
+        // console.log('Sum Ganjil ===========> ', sumganjil)
+        // console.log('Hasil Ganjil ===========> ', hasilganjil)
+
+        for (var i = 0; i < arr_inner_genap.length; i++) {
+            arr_inner_genap[i] = arr_inner_genap[i] * 2;
+            genapbro = arr_inner_genap;
+        }
+        for (var i = 0; i < genapbro.length; i++) {
+            if (genapbro[i] > 9) {
+            genapbro[i] = genapbro[i] - 9;
+            }
+        }
+        var hasilgenap = genapbro.reduce(function(a, b) {
+            return a + b;
+        }, 0);
+        // console.log('Genap Bro ===========> ', genapbro)
+        // console.log('Hasil Genap ===========> ', hasilgenap)
+
+        var hitung = hasilganjil + hasilgenap;
+        // console.log('Hitung ===========> ', hitung)
+        var hasil = Array.from(hitung.toString()).map(Number);
+        // console.log('Hasil ===========> ', hasil)
+        if (hasil.length == 1) {
+            final = hasil * 9;
+        } else {
+            final = hasil[1] * 9;
+        }
+        // console.log('Final ============> ', final);
+            
+        var finalresult = Array.from(final.toString()).map(Number);
+        if (finalresult.length == 1) {
+            return finalresult;
+        } else {
+            return finalresult[1];
+        }
+        // console.log('Final Result ============> ', finalresult);
+    }
+
+    var nomer = 0;
+
+    for (var i in arr_kelompok)
+    {
+        for (var j in arr_kelompok[i].inner_list)
+        {
+            // console.log('Array Kelompok =========> ', arr_kelompok[i])
+            // console.log('Inner List =========> ', arr_kelompok[i].inner_list[j])
+            var inner_sub = arr_kelompok[i].inner_list[j].inner.substring(7, 10);
+            if (parseInt(inner_sub) >= parseInt(from) && parseInt(inner_sub) <= parseInt(to))
+            {
+                nomer += 1;
+                no_seri.push({
+                    // nomor : nomer, 
+                    seri: arr_kelompok[i].inner_list[j].inner.substring(0, 10), 
+                    id : arr_kelompok[i].inner_list[j].inner.substring(10, 11)});
+                // console.log('inner sub yang masuk ===>',inner_sub);
+            }
+        }
+    }
+    
+    if ($('#myinput1').val().substring(4,5) != $('#myinput2').val().substring(4,5))
+    {
+        var this_inner = inner_beda_lot+"000";
+        no_seri.push({
+            seri: this_inner,
+            id: calculateLastInner(this_inner)
+        });
+    }
+
+    console.log(arr_kelompok);
+    console.log('Nomor Seri ==========>', no_seri);
+    
+    $( "#no-seri-table-temp tbody" ).append($( "<tr><td class='text-center'>"+pushed+"</td><td id='temp-value' class='text-center'>"+$("#myinput1").val()+"</td><td id='temp-value' class='text-center'>"+$("#myinput2").val()+"</td></tr>" ));
+
+    if (namaFile == '' || namaFile == null)
+    {
+        fileName = 'Packing List | '+time.getFullYear()+'-'+time.toLocaleString('default', { month: 'long' })+'-'+time.getDate();
+    }
+    else
+    {
+        fileName = namaFile+' | '+time.getFullYear()+'-'+time.toLocaleString('default', { month: 'long' })+'-'+time.getDate();
+    }
+
+    resetAll();
+    showAlert();
+}
+
+function showAlert()
+{
+    swal({
+        title: "Berhasil menginputkan "+pushed+" kali",
+        text: "Silahkan Masukan Nomor Seri Yang Lain",
+        icon: "success",
+        timer: 1000,
+        buttons: false
+        });
+}
 
 function inputToTable()
 {
@@ -330,7 +332,7 @@ function inputToTable()
     if (trElement > 9999)
     {
         swal({
-            title: "Tidak boleh lebih dari 999",
+            title: "Tidak boleh lebih dari 9999",
             icon: "error",
             timer: 2000,
             buttons: false
@@ -338,11 +340,10 @@ function inputToTable()
     }
 }
 
-
-
-$('#searchBox').keyup(function(){
-    table.search($(this).val()).draw() ;
-})
+$('#searchBox').keyup(function()
+{
+    table.search($(this).val()).draw();
+});
 
 function resetAll()
 {
