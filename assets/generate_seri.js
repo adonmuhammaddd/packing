@@ -261,6 +261,7 @@ function myFunction()
 
     resetAll();
     showAlert();
+    console.log(arr_kelompok);
 }
 
 function showAlert()
@@ -347,24 +348,18 @@ $('#searchBox').keyup(function()
 
 function resetAll()
 {
-    var meter_type = null;
-    var tahun_bro = null;
-    var nomer_lot = null;
-    var inner_bro = null;
-    var inner_beda_lot = null;
-    var from = null;
-    var to = null;
-    var jumlah_kelompok = 125;
-    var jumlah_seri = 0;
-    var nomer_master = null;
-    var arr_kelompok = [];
-    var lot = 1000;
-    var json_seri = null;
+    tahun_bro = null;
+    nomer_lot = null;
+    inner_bro = null;
+    inner_beda_lot = null;
+    from = null;
+    to = null;
     var no_seri = [];
-    var nomer = null;
-    var pushed = 0;
-    var myinput1 = null;
-    var myinput2 = null;
+    jumlah_seri = 0;
+    nomer_master = null;
+    arr_kelompok = [];
+    json_seri = null;
+    nomer = null;
     
     document.getElementById('myinput1').value = '';
     document.getElementById('myinput2').value = '';
