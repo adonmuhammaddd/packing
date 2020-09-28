@@ -45,15 +45,6 @@ display: none;
                     <div class="col-md-3">
                         <input class="form-control" type="text" id="myinput2" size="8" minlength="8" maxlength="8"></input>
                     </div>
-                    <!-- <div class="col-md-1">
-                        <input class="form-control" type="text" id="nomerlot" placeholder="(ex:001)"></input>
-                    </div>
-                    <div class="col-md-1">
-                        <input class="form-control" type="text" id="dari"></input>
-                    </div>
-                    <div class="col-md-1">
-                        <input class="form-control" type="text" id="ke"></input>
-                    </div> -->
                     <div class="col-md-3">
                         <button style="width:100%" class="btn btn-primary btn-flat" onclick="myFunction()">Generate Nomor Seri</button>
                     </div>
@@ -76,6 +67,7 @@ display: none;
                             <tbody>
                                 <!-- <td></td>
                                 <td></td>
+                                
                                 <td></td> -->
                             </tbody>
                         </table>
