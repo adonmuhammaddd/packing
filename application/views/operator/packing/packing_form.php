@@ -58,46 +58,58 @@
                             <label for="">No. Inner</label>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" id="inner1">
                         <div class="col-md-6">
                             <input id="inner-1" class="form-control centerField _inner" type="text" name="no_inner[]" size="11" maxlength="11" autocomplete="off" onkeyup="moveOnMax(this,document.getElementById('inner-11'))" autofocus></input>
                             <span class="help-block"></span>
                         </div>
-                        <div class="col-md-6">
+                        <div class="innerDupes">
                             <input id="inner-11" class="form-control centerField _inner" type="text" size="11" maxlength="11" autocomplete="off" onkeyup="moveOnMax(this,document.getElementById('inner-2'))"></input>
                             <span class="help-block"></span>
                         </div>
+                        <div class="col-md-1 removeButton">
+                            <button type="button" class="form-control btn btn-danger btn-flat" onclick="removeInner1()"><i class="fa fa-trash"></i></button>
+                        </div>
                     </div>      
                 
-                    <div class="row">
+                    <div class="row" id="inner2">
                         <div class="col-md-6 inner-2">
                             <input id="inner-2" class="form-control centerField _inner" type="text" name="no_inner[]" size="11" maxlength="11" autocomplete="off" onkeyup="moveOnMax(this,document.getElementById('inner-22'))"></input>
                         </div>
-                        <div class="col-md-6">
+                        <div class="innerDupes">
                             <input id="inner-22" class="form-control centerField _inner" type="text" size="11" maxlength="11" autocomplete="off" onkeyup="moveOnMax(this,document.getElementById('inner-3'))"></input>
                             <span class="help-block"></span>
                         </div>
+                        <div class="col-md-1 removeButton">
+                            <button type="button" class="form-control btn btn-danger btn-flat" onclick="removeInner2()"><i class="fa fa-trash"></i></button>
+                        </div>
                     </div>
                 
-                    <div class="row">
+                    <div class="row" id="inner3">
                         <div class="col-md-6 inner-3">
                             <input id="inner-3" class="form-control centerField _inner" type="text" name="no_inner[]" size="11" maxlength="11" autocomplete="off" onkeyup="moveOnMax(this,document.getElementById('inner-33'))"></input>
                             <span class="help-block"></span>
                         </div>
-                        <div class="col-md-6">
+                        <div class="innerDupes">
                             <input id="inner-33" class="form-control centerField _inner" type="text" size="11" maxlength="11" autocomplete="off" onkeyup="moveOnMax(this,document.getElementById('inner-4'))"></input>
                             <span class="help-block"></span>
                         </div>
+                        <div class="col-md-1 removeButton">
+                            <button type="button" class="form-control btn btn-danger btn-flat" onclick="removeInner3()"><i class="fa fa-trash"></i></button>
+                        </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row" id="inner4">
                         <div class="col-md-6 inner-4">
                             <input id="inner-4" class="form-control centerField _inner" type="text" name="no_inner[]" size="11" maxlength="11" autocomplete="off" onkeyup="moveOnMax(this,document.getElementById('inner-44'))"></input>
                             <span class="help-block"></span>
                         </div>
-                        <div class="col-md-6">
+                        <div class="innerDupes">
                             <input id="inner-44" class="form-control centerField _inner" type="text" size="11" maxlength="11" autocomplete="off" onkeyup="moveOnMax(this,document.getElementById('inner-5'))"></input>
                             <span class="help-block"></span>
+                        </div>
+                        <div class="col-md-1 removeButton">
+                            <button type="button" class="form-control btn btn-danger btn-flat" onclick="removeInner4()"><i class="fa fa-trash"></i></button>
                         </div>
                     </div>
                     <hr>
@@ -110,62 +122,65 @@
                         </div>
                     </div>
                     
-                    <div class="row">
+                    <div class="row" id="inner5">
                         <div class="col-md-6 inner-5">
                             <input id="inner-5" class="form-control centerField _inner" type="text" name="no_inner[]" size="11" maxlength="11" autocomplete="off" onkeyup="moveOnMax(this,document.getElementById('inner-55'))"></input>
                             <span class="help-block"></span>
                         </div>
-                        <div class="col-md-6">
+                        <div class="innerDupes">
                             <input id="inner-55" class="form-control centerField _inner" type="text" size="11" maxlength="11" autocomplete="off" onkeyup="moveOnMax(this,document.getElementById('inner-6'))"></input>
                             <span class="help-block"></span>
                         </div>
+                        <div class="col-md-1 removeButton">
+                            <button type="button" class="form-control btn btn-danger btn-flat" onclick="removeInner5()"><i class="fa fa-trash"></i></button>
+                        </div>
                     </div>
                     
-                    <div class="row">
+                    <div class="row" id="inner6">
                         <div class="col-md-6 inner-6">
                             <input id="inner-6" class="form-control centerField _inner" type="text" name="no_inner[]" size="11" maxlength="11" autocomplete="off" onkeyup="moveOnMax(this,document.getElementById('inner-66'))"></input>
                             <span class="help-block"></span>
                         </div>
-                        <div class="col-md-6">
+                        <div class="innerDupes">
                             <input id="inner-66" class="form-control centerField _inner" type="text" size="11" maxlength="11" autocomplete="off" onkeyup="moveOnMax(this,document.getElementById('inner-7'))"></input>
                             <span class="help-block"></span>
                         </div>
+                        <div class="col-md-1 removeButton">
+                            <button type="button" class="form-control btn btn-danger btn-flat" onclick="removeInner6()"><i class="fa fa-trash"></i></button>
+                        </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row" id="inner7">
                         <div class="col-md-6 inner-7">
                             <input id="inner-7" class="form-control centerField _inner" type="text" name="no_inner[]" size="11" maxlength="11" autocomplete="off" onkeyup="moveOnMax(this,document.getElementById('inner-77'))"></input>
                             <span class="help-block"></span>
                         </div>
-                        <div class="col-md-6">
+                        <div class="innerDupes">
                             <input id="inner-77" class="form-control centerField _inner" type="text" size="11" maxlength="11" autocomplete="off" onkeyup="moveOnMax(this,document.getElementById('inner-8'))"></input>
                             <span class="help-block"></span>
                         </div>
+                        <div class="col-md-1 removeButton">
+                            <button type="button" class="form-control btn btn-danger btn-flat" onclick="removeInner7()"><i class="fa fa-trash"></i></button>
+                        </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row" id="inner8">
                         <div class="col-md-6 inner-8">
                             <input id="inner-8" class="form-control centerField _inner" type="text" name="no_inner[]" size="11" maxlength="11" autocomplete="off" onkeyup="moveOnMax(this,document.getElementById('inner-88'))"></input>
                             <span class="help-block"></span>
                         </div>
-                        <div class="col-md-6">
+                        <div class="innerDupes">
                             <input id="inner-88" class="form-control centerField _inner" type="text" size="11" maxlength="11" autocomplete="off" onkeyup="moveOnMax(this,document.getElementById('master-1'))"></input>
                             <span class="help-block"></span>
                         </div>
+                        <div class="col-md-1 removeButton">
+                            <button type="button" class="form-control btn btn-danger btn-flat" onclick="removeInner8()"><i class="fa fa-trash"></i></button>
+                        </div>
                     </div>
                     
-                            <div class="btn-group">
-                                <input type="button" class="form-control btn btn-warning btn-flat dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" value="Hapus Field">
-                                <div class="dropdown-menu">
-                                <input type="button" class=" dropdown-item form-control btn btn-secondary btnRemove1" value="Hapus 1">
-                                <input type="button" class=" dropdown-item form-control btn btn-secondary btnRemove2" value="Hapus 2">
-                                <input type="button" class=" dropdown-item form-control btn btn-secondary btnRemove3" value="Hapus 3">
-                                <input type="button" class=" dropdown-item form-control btn btn-secondary btnRemove4" value="Hapus 4">
-                                <input type="button" class=" dropdown-item form-control btn btn-secondary btnRemove5" value="Hapus 5">
-                                <input type="button" class=" dropdown-item form-control btn btn-secondary btnRemove6" value="Hapus 6">
-                                <input type="button" class=" dropdown-item form-control btn btn-secondary btnRemove7" value="Hapus 7">
-                                </div>
-                            </div>
+                    <div class="btn-group">
+                        <button type="button" class="form-control btn btn-warning btn-flat" onclick="showRemoveButton()">Hapus Field</button>
+                    </div>
                     <hr>
 
                     <div class="form-group">
@@ -192,3 +207,23 @@
 </section>
 <script src="<?php echo base_url(); ?>assets/vendor/sweetalert/sweetalert.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/packing/packing.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".removeButton").css("display","none")
+        $(".innerDupes").addClass("col-md-6")
+    })
+    function showRemoveButton() {
+        $('.removeButton').toggle()
+
+        if ($('.removeButton').is(':visible'))
+        {
+            $(".innerDupes").removeClass("col-md-6")
+            $(".innerDupes").addClass("col-md-5")
+        }
+        else
+        {
+            $(".innerDupes").removeClass("col-md-5")
+            $(".innerDupes").addClass("col-md-6")
+        }
+    }
+</script>

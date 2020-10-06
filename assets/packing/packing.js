@@ -71,7 +71,7 @@ arr_kelompok[i].inner_list[i].splice(i, 1);
     {
         if (($("#inner-1").val() === "") || ($("#inner-2").val() === "") || ($("#inner-3").val() === "") || ($("#inner-4").val() === "") || ($("#inner-5").val() === "") || ($("#inner-6").val() === "") || ($("#inner-7").val() === "") || ($("#inner-8").val() === "") || ($("#master-1").val() === "")) 
         {
-            alert('Nomor Master dan Nomor Inner tidak boleh kosong!');
+            showEmptyField();
         }
         else
         {
@@ -191,6 +191,14 @@ arr_kelompok[i].inner_list[i].splice(i, 1);
         swal({
             title: "Gagal !",
             text: "Nomor Inner sudah pernah di Input",
+            icon: "error"
+        });
+    }
+
+    function showEmptyField()
+    {
+        swal({
+            title: "Masih ada Nomor Master / Nomor Inner yang kosong!",
             icon: "error"
         });
     }
@@ -543,54 +551,37 @@ arr_kelompok[i].inner_list[i].splice(i, 1);
             }
         }
     }
-
-    $('.btnRemove1').click (function () 
-    {
-        $('div .inner-8').parent().remove();
-    }); // end click
-    $('.btnRemove2').click (function () 
-    {
-        $('div .inner-8').parent().remove();
-        $('div .inner-7').parent().remove();
-    }); // end click
-    $('.btnRemove3').click (function () 
-    {
-        $('div .inner-8').parent().remove();
-        $('div .inner-7').parent().remove();
-        $('div .inner-6').parent().remove();
-    }); // end click
-    $('.btnRemove4').click (function () 
-    {
-        $('div .inner-8').parent().remove();
-        $('div .inner-7').parent().remove();
-        $('div .inner-6').parent().remove();
-        $('div .inner-5').parent().remove();
-    }); // end click
-    $('.btnRemove5').click (function () 
-    {
-        $('div .inner-8').parent().remove();
-        $('div .inner-7').parent().remove();
-        $('div .inner-6').parent().remove();
-        $('div .inner-5').parent().remove();
-        $('div .inner-4').parent().remove();
-    }); // end click
-    $('.btnRemove6').click (function () 
-    {
-        $('div .inner-8').parent().remove();
-        $('div .inner-7').parent().remove();
-        $('div .inner-6').parent().remove();
-        $('div .inner-5').parent().remove();
-        $('div .inner-4').parent().remove();
-        $('div .inner-3').parent().remove();
-    }); // end click
-    $('.btnRemove7').click (function () 
-    {
-        $('div .inner-8').parent().remove();
-        $('div .inner-7').parent().remove();
-        $('div .inner-6').parent().remove();
-        $('div .inner-5').parent().remove();
-        $('div .inner-4').parent().remove();
-        $('div .inner-3').parent().remove();
-        $('div .inner-2').parent().remove();
-    }); // end click
+    
+    function removeInner1() {
+        var x = $("#inner1");
+        x.remove()
+    }
+    function removeInner2() {
+        var x = $("#inner2");
+        x.remove()
+    }
+    function removeInner3() {
+        var x = $("#inner3");
+        x.remove()
+    }
+    function removeInner4() {
+        var x = $("#inner4");
+        x.remove()
+    }
+    function removeInner5() {
+        var x = $("#inner5");
+        x.remove();
+    }
+    function removeInner6() {
+        var x = $("#inner6");
+        x.remove();
+    }
+    function removeInner7() {
+        var x = $("#inner7");
+        x.remove();
+    }
+    function removeInner8() {
+        var x = $("#inner8");
+        x.remove();
+    }
   /* #endregion OnChange */
