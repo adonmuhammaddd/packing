@@ -147,7 +147,7 @@ class Product_model extends CI_Model
     function get_master()
     {
         $this->db->select('no_master');
-        $this->db->from('tbl_master');
+        $this->db->from('tbl_inner_baru');
         $query = $this->db->get()->result_array();
         return $query;
     }

@@ -26,7 +26,15 @@ class Packing extends CI_Controller {
         $this->template->title($title);
 
 		$this->template->load('operator/template', 'operator/packing/packing_form_tunggakan.php');
-    }
+	}
+	
+	public function indexData()
+	{
+		$title = 'Melcoinda | Packing';
+        $this->template->title($title);
+
+		$this->template->load('operator/template', 'operator/packing/packing_data.php');
+	}
     
     function save()
 	{
@@ -149,7 +157,7 @@ class Packing extends CI_Controller {
 		}
 		#endregion
 	}
-	
+
 	function getDataNotComplete()
 	{	
 		#region getDataNotComplete
@@ -182,6 +190,7 @@ class Packing extends CI_Controller {
 			$row[] = $field->no_inner;
 			$row[] = $field->tgl;
 			$row[] = $field->waktu;
+			$row[] = $field->operator;
 
 			$data[] = $row;
 		}
