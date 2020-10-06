@@ -25,15 +25,30 @@ class Auth extends CI_Controller {
             if ($query->num_rows() > 0)
             {
                 $row = $query->row();
-                $params = array(
-                    'userId' => $row->id,
-                    'level' => $row->level
-                );
-                $this->session->set_userdata($params);
-                echo "<script>
-                    alert('Login berhasil!');
-                    window.location='".base_url('dashboard')."';
-                </script>";
+                if ($row->level == 10)
+                {
+                    $params = array(
+                        'userId' => $row->id,
+                        'level' => $row->level
+                    );
+                    $this->session->set_userdata($params);
+                    echo "<script>
+                        alert('Login berhasil!');
+                        window.location='".base_url('packing')."';
+                    </script>";
+                }
+                else
+                {
+                    $params = array(
+                        'userId' => $row->id,
+                        'level' => $row->level
+                    );
+                    $this->session->set_userdata($params);
+                    echo "<script>
+                        alert('Login berhasil!');
+                        window.location='".base_url('dashboard')."';
+                    </script>";
+                }
             }
             else
             {

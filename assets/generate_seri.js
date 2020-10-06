@@ -149,6 +149,8 @@ function myFunction()
             }
         }
     }
+    
+    console.log('Kelompok 1 ==========>', arr_kelompok);
 
     function calculateLastInner(my_inner) 
     {
@@ -233,6 +235,8 @@ function myFunction()
             }
         }
     }
+    
+    console.log('Nomor Seri 1 ==========>', no_seri);
     
     if ($('#myinput1').val().substring(4,5) != $('#myinput2').val().substring(4,5))
     {
@@ -403,8 +407,8 @@ function myFunction()
         }
     }
 
-    console.log(arr_kelompok);
-    console.log('Nomor Seri ==========>', no_seri);
+    console.log('Kelompok 2 ==========>', arr_kelompok);
+    console.log('Nomor Seri 2 ==========>', no_seri);
     
     $( "#no-seri-table-temp tbody" ).append($( "<tr><td class='text-center'>"+pushed+"</td><td id='temp-value' class='text-center'>"+$("#myinput1").val()+"</td><td id='temp-value' class='text-center'>"+$("#myinput2").val()+"</td></tr>" ));
 
@@ -418,11 +422,10 @@ function myFunction()
     }
 
     resetAll();
-    showAlert();
-    console.log(arr_kelompok);
+    showAlertSuccess();
 }
 
-function showAlert()
+function showAlertSuccess()
 {
     swal({
         title: "Berhasil menginputkan "+pushed+" kali",
@@ -430,7 +433,7 @@ function showAlert()
         icon: "success",
         timer: 1000,
         buttons: false
-        });
+    });
 }
 
 function inputToTable()
@@ -473,10 +476,10 @@ function inputToTable()
         ],
         select: true,
         // lengthMenu: [
-        //     [ 10, 25, 50, -1 ],
+        //     [ 10, 25, 50, -1 ],6285156748046
         //     [ '10', '25', '50', 'Show all' ]
         // ],
-        // pageLength: 10,
+        // pageLength: 10,          
         columnDefs: [
             {
                 targets: [0, 1],

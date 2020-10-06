@@ -132,24 +132,35 @@ display: none;
         }
 
         $('#save-link').click(function ()
-{
-  var retContent = [];
-  var retString = '';
-  var namaFileNedysis = $("#nama-file-nedysis").val();
-  $('tbody tr').each(function (idx, elem)
-  {
-    var elemText = [];
-    $(elem).children('td').each(function (childIdx, childElem)
-    {
-      elemText.push($(childElem).text());
-    });
-    retContent.push(`(${elemText.join('')})`);
-  });
-  retString = retContent.join(',\r\n');
-	var file = new Blob([retString], {type: 'text/plain'});
-  var btn = $('#save-link');
-  btn.attr("href", URL.createObjectURL(file));
-  btn.prop("download", namaFileNedysis+".txt");
-})
+        {
+            var retContent = [];
+            var retString = '';
+            var namaFileNedysis = '';
+            var time = new Date();
+
+            if ($("#nama-file-nedysis").val() == '')
+            {
+                namaFileNedysis = 'Nedysis | '+time.getFullYear()+'-'+time.toLocaleString('default', { month: 'long' })+'-'+time.getDate();
+            }
+            else
+            {
+                namaFileNedysis = $("#nama-file-nedysis").val() + ' | ' +time.getFullYear()+'-'+time.toLocaleString('default', { month: 'long' })+'-'+time.getDate();
+            }
+
+            $('tbody tr').each(function (idx, elem)
+            {
+                var elemText = [];
+                $(elem).children('td').each(function (childIdx, childElem)
+                {
+                elemText.push($(childElem).text());
+                });
+                retContent.push(`(${elemText.join('')})`);
+            });
+            retString = retContent.join(',\r\n');
+                var file = new Blob([retString], {type: 'text/plain'});
+            var btn = $('#save-link');
+            btn.attr("href", URL.createObjectURL(file));
+            btn.prop("download", namaFileNedysis+".txt");
+        })
         
     </script>
