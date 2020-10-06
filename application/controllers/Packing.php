@@ -168,7 +168,7 @@ class Packing extends CI_Controller {
 		{
 			$new[$k] = $v['no_master'];
 		}
-		$theMaster = array_count_values($new);
+		// $theMaster = array_count_values($new);
 		// foreach($theMaster as $dk => $dv)
 		// {
 		// 	if($dv < 8)
