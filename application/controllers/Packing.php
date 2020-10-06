@@ -169,39 +169,39 @@ class Packing extends CI_Controller {
 			$new[$k] = $v['no_master'];
 		}
 		$theMaster = array_count_values($new);
-		foreach($theMaster as $dk => $dv)
-		{
-			if($dv < 8)
-			{
-				$myMaster = $dk;
-			}
-			array_push($sangMaster, $myMaster);
-		}
+		// foreach($theMaster as $dk => $dv)
+		// {
+		// 	if($dv < 8)
+		// 	{
+		// 		$myMaster = $dk;
+		// 	}
+		// 	array_push($sangMaster, $myMaster);
+		// }
 		
-		$list = $this->product_model->get_datatables_not_complete($sangMaster);
-		$data = array();
-		$no = $_POST['start'];
-		foreach ($list as $field)
-		{
-			$no++;
-			$row = array();
-			$row[] = $no;
-			$row[] = $field->no_master;
-			$row[] = $field->no_inner;
-			$row[] = $field->tgl;
-			$row[] = $field->waktu;
-			$row[] = $field->operator;
+		// $list = $this->product_model->get_datatables_not_complete($sangMaster);
+		// $data = array();
+		// $no = $_POST['start'];
+		// foreach ($list as $field)
+		// {
+		// 	$no++;
+		// 	$row = array();
+		// 	$row[] = $no;
+		// 	$row[] = $field->no_master;
+		// 	$row[] = $field->no_inner;
+		// 	$row[] = $field->tgl;
+		// 	$row[] = $field->waktu;
+		// 	$row[] = $field->operator;
 
-			$data[] = $row;
-		}
+		// 	$data[] = $row;
+		// }
 
-		$output = array (
-			"draw" => $_POST['draw'],
-			"recordsTotal" => $this->product_model->count_all(),
-			"recordsFiltered" => $this->product_model->count_filtered(),
-			"data" => $data,
-		);
-		echo json_encode($output);
+		// $output = array (
+		// 	"draw" => $_POST['draw'],
+		// 	"recordsTotal" => $this->product_model->count_all(),
+		// 	"recordsFiltered" => $this->product_model->count_filtered(),
+		// 	"data" => $data,
+		// );
+		echo json_encode($new);
 		#endregion
 	}
 }
