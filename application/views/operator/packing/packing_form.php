@@ -209,8 +209,8 @@
 <script src="<?php echo base_url(); ?>assets/packing/packing.js"></script>
 <script>
     $(document).ready(function(){
-        $(".removeButton").css("display","none")
         $(".innerDupes").addClass("col-md-6")
+        $(".removeButton").css("display","none")
     })
     function showRemoveButton() {
         $('.removeButton').toggle()

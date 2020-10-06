@@ -13,9 +13,6 @@ function lanjutOnMax(field)
 }
 
 $('#master-1').on('change', onchange);
-var save_method; //for save method string
-var tableTunggakan;
-var tableReguler;
 var jumlah_kelompok = 125;
 var arr_kelompok = [];
     $(document).ready(function() {
@@ -57,7 +54,7 @@ var arr_kelompok = [];
                 else if(count == 1000 )
                 {
                     // arr_kelompok[i].inner_list.push({inner :  "000" , kelompok:arr_kelompok[i].kelompok})
-arr_kelompok[i].inner_list[i].splice(i, 1);
+                    arr_kelompok[i].inner_list[i].splice(i, 1)
                 }
                 else
                 {
@@ -92,7 +89,7 @@ arr_kelompok[i].inner_list[i].splice(i, 1);
                     if(data.status == true)
                     {
                         showSuccessNotif();
-                        $("#formReguler")[0].reset();
+                        fieldReset();
                     }
                     else
                     {
@@ -253,39 +250,7 @@ arr_kelompok[i].inner_list[i].splice(i, 1);
 
     function fieldReset()
     {
-        $( "#inner-1" ).val() = "";
-        $( "#inner-11" ).val() = "";
-        $( "#inner-2" ).val() = "";
-        $( "#inner-22" ).val() = "";
-        $( "#inner-3" ).val() = "";
-        $( "#inner-33" ).val() = "";
-        $( "#inner-4" ).val() = "";
-        $( "#inner-44" ).val() = "";
-        $( "#inner-5" ).val() = "";
-        $( "#inner-55" ).val() = "";
-        $( "#inner-6" ).val() = "";
-        $( "#inner-66" ).val() = "";
-        $( "#inner-7" ).val() = "";
-        $( "#inner-77" ).val() = "";
-        $( "#inner-8" ).val() = "";
-        $( "#inner-88" ).val() = "";
-
-        $( "#inner-1" ).removeClass("makeRed");
-        $( "#inner-11" ).removeClass("makeRed");
-        $( "#inner-2" ).removeClass("makeRed");
-        $( "#inner-22" ).removeClass("makeRed");
-        $( "#inner-3" ).removeClass("makeRed");
-        $( "#inner-33" ).removeClass("makeRed");
-        $( "#inner-4" ).removeClass("makeRed");
-        $( "#inner-44" ).removeClass("makeRed");
-        $( "#inner-5" ).removeClass("makeRed");
-        $( "#inner-55" ).removeClass("makeRed");
-        $( "#inner-6" ).removeClass("makeRed");
-        $( "#inner-66" ).removeClass("makeRed");
-        $( "#inner-7" ).removeClass("makeRed");
-        $( "#inner-77" ).removeClass("makeRed");
-        $( "#inner-8" ).removeClass("makeRed");
-        $( "#inner-88" ).removeClass("makeRed");
+        $("#formReguler")[0].reset();
         
         $( "#inner-1" ).removeClass("makeGreen");
         $( "#inner-11" ).removeClass("makeGreen");
@@ -303,6 +268,23 @@ arr_kelompok[i].inner_list[i].splice(i, 1);
         $( "#inner-77" ).removeClass("makeGreen");
         $( "#inner-8" ).removeClass("makeGreen");
         $( "#inner-88" ).removeClass("makeGreen");
+        
+        $( "#inner-1" ).removeClass("makeRed");
+        $( "#inner-11" ).removeClass("makeRed");
+        $( "#inner-2" ).removeClass("makeRed");
+        $( "#inner-22" ).removeClass("makeRed");
+        $( "#inner-3" ).removeClass("makeRed");
+        $( "#inner-33" ).removeClass("makeRed");
+        $( "#inner-4" ).removeClass("makeRed");
+        $( "#inner-44" ).removeClass("makeRed");
+        $( "#inner-5" ).removeClass("makeRed");
+        $( "#inner-55" ).removeClass("makeRed");
+        $( "#inner-6" ).removeClass("makeRed");
+        $( "#inner-66" ).removeClass("makeRed");
+        $( "#inner-7" ).removeClass("makeRed");
+        $( "#inner-77" ).removeClass("makeRed");
+        $( "#inner-8" ).removeClass("makeRed");
+        $( "#inner-88" ).removeClass("makeRed");
     }
 
     /* #region FieldCheck */
