@@ -32,10 +32,10 @@ Class Fungsi
         $dompdf->stream($filename, array('Attachment' => 0));
     }
 
-    public function itemCount()
+    public function scannedCount()
     {
-        $this->ci->load->model('supplier_m');
-        return $this->ci->supplier_m->get()->num_rows();
+        $this->ci->load->model('product_model');
+        return $this->ci->product_model->get()->num_rows();
     }
 
     public function supplierCount()

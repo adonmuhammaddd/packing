@@ -24,11 +24,9 @@ function log_helper($type="", $str="")
     {
         $log_type = 4;
     }
-
     // parameter
-    $param['log_user'] = $CI->session->userdata('username');
-    $param['log_name'] = $CI->session->userdata('nama');
-    $param['log_role'] = $CI->session->userdata('role');
+    $param['log_name'] = $CI->fungsi->user_login()->name;
+    $param['log_role'] = $CI->fungsi->user_login()->level;
     $param['log_type'] = $log_type;
     $param['log_desc'] = $str;
 

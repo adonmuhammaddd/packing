@@ -26,6 +26,10 @@
     {
         border: 4px solid green;
     }
+
+    .sansserif {
+        font-family: Arial, Helvetica, sans-serif;
+    }
 </style>
 <section class="content-header">
     <h1>
@@ -36,6 +40,15 @@
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Packing</li>
     </ol>
+    <br>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h2 class="text-uppercase mt-4 mb-5">Halo <b><?= $this->fungsi->user_login()->name ?></b> 👋</h2>
+        </div>
+        <div class="panel-body">
+            <p class="sansserif"><h3>Selamat bekerja, tetap semangat dan jangan lupa tersenyum hari ini 😉</h3></p>
+        </div>
+    </div>
 </section>
 
 <section class="content">

@@ -29,9 +29,11 @@ class Auth extends CI_Controller {
                 {
                     $params = array(
                         'userId' => $row->id,
-                        'level' => $row->level
+                        'level' => $row->level,
+                        'name' => $row->name
                     );
                     $this->session->set_userdata($params);
+                    log_helper("login", "Input Data Tunggakan");
                     echo "<script>
                         alert('Login berhasil!');
                         window.location='".base_url('packing')."';
@@ -41,7 +43,8 @@ class Auth extends CI_Controller {
                 {
                     $params = array(
                         'userId' => $row->id,
-                        'level' => $row->level
+                        'level' => $row->level,
+                        'name' => $row->name
                     );
                     $this->session->set_userdata($params);
                     echo "<script>

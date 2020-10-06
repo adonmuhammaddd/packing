@@ -14,6 +14,13 @@ class Product_model extends CI_Model
 		$this->load->library('form_validation');
     }
 
+    public function get()
+    {
+        $this->db->from($this->table);
+        $query = $this->db->get();
+        return $query;
+    }
+
     function saveMaster($table, $data)
     {
         $this->db->insert($table, $data);
@@ -29,7 +36,7 @@ class Product_model extends CI_Model
     function saveTunggakan($table, $data)
     {
         $this->db->insert($table, $data);
-        log_helper("add", "Input Data Inner");
+        log_helper("add", "Input Data Tunggakan");
     }
 
     function checkInner()
@@ -100,7 +107,11 @@ class Product_model extends CI_Model
         $this->_get_datatables_query();
         if ($_POST['length'] != -1)
         $this->db->limit($_POST['length'], $_POST['start']);
-        $this->db->where_in('no_master', $sangMaster);
+        // $this->db->where_in('no_master', $sangMaster);
+        $this->db->group_start();
+        $dataFilter = array_chunk($sangMaster, 25);
+        foreach($dataFilter as $sangMaster) { $this->db->or_where_in('no_master', $sangMaster); }
+        $this->db->group_end();
         $query = $this->db->get();
         return $query->result();
     }

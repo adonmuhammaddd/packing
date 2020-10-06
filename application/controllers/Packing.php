@@ -104,11 +104,15 @@ class Packing extends CI_Controller {
 
 		$date = date('Y-m-d');
 		$time = date('H:i:s');
+		$operator = $this->fungsi->user_login()->name;
+		$level = $this->fungsi->user_login()->level;
 		$myMaster = $this->input->post('no_master');
 		$dataMaster = array(
 			'no_master' => $myMaster,
 			'tgl' => $date,
-			'waktu' => $time
+			'waktu' => $time,
+			'operator'=>$operator,
+			'levelUser'=>$level
 		);
 		$no_innerrr = $_POST['no_inner'];
 		$dataInner = array();
@@ -118,7 +122,9 @@ class Packing extends CI_Controller {
 					'no_inner'=>$Inner,
 					'tgl'=>$date,
 					'waktu'=>$time,
-					'no_master'=>$myMaster
+					'no_master'=>$myMaster,
+					'operator'=>$operator,
+					'levelUser'=>$level
 				));
 			}
 
@@ -141,6 +147,52 @@ class Packing extends CI_Controller {
 				"Data" => $getInner
 			));
 		}
+		#endregion
+	}
+	
+	function getDataNotComplete()
+	{	
+		#region getDataNotComplete
+		$myMaster = '';
+		$sangMaster = [];
+        $master = $this->product_model->get_master();
+		foreach($master as $k=>$v) 
+		{
+			$new[$k] = $v['no_master'];
+		}
+		$theMaster = array_count_values($new);
+		foreach($theMaster as $dk => $dv)
+		{
+			if($dv < 8)
+			{
+				$myMaster = $dk;
+			}
+			array_push($sangMaster, $myMaster);
+		}
+		
+		$list = $this->product_model->get_datatables_not_complete($sangMaster);
+		$data = array();
+		$no = $_POST['start'];
+		foreach ($list as $field)
+		{
+			$no++;
+			$row = array();
+			$row[] = $no;
+			$row[] = $field->no_master;
+			$row[] = $field->no_inner;
+			$row[] = $field->tgl;
+			$row[] = $field->waktu;
+
+			$data[] = $row;
+		}
+
+		$output = array (
+			"draw" => $_POST['draw'],
+			"recordsTotal" => $this->product_model->count_all(),
+			"recordsFiltered" => $this->product_model->count_filtered(),
+			"data" => $data,
+		);
+		echo json_encode($output);
 		#endregion
 	}
 }
