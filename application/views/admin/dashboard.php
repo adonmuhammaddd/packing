@@ -17,7 +17,7 @@
             <div class="inner">
               <h3><?= $this->fungsi->scannedCount(); ?></h3>
 
-              <p>Items</p>
+              <p>Total kWh terpacking</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
@@ -28,9 +28,9 @@
         <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-green">
             <div class="inner">
-              <h3><?= $this->fungsi->supplierCount(); ?><sup style="font-size: 20px"></sup></h3>
+              <h3><?= $this->fungsi->tunggakanCount(); ?><sup style="font-size: 20px"></sup></h3>
 
-              <p>Suppliers</p>
+              <p>Prabayar Tunggakan</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>

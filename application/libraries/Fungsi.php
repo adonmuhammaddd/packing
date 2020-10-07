@@ -38,10 +38,32 @@ Class Fungsi
         return $this->ci->product_model->get()->num_rows();
     }
 
-    public function supplierCount()
+    public function tunggakanCount()
     {
-        $this->ci->load->model('supplier_m');
-        return $this->ci->supplier_m->get()->num_rows();
+		$myMaster = '';
+		$sangMaster = [];
+		$masterSingle = [];
+        $this->ci->load->model('product_model');
+        $master = $this->ci->product_model->get_master();
+		foreach($master as $k=>$v) 
+		{
+			$new[$k] = $v['no_master'];
+		}
+		$theMaster = array_count_values($new);
+		foreach($theMaster as $dk => $dv)
+		{
+			if($dv < 8)
+			{
+				$myMaster = $dk;
+			}
+			array_push($sangMaster, $myMaster);
+		}
+		$masterUnique = array_unique($sangMaster);
+		foreach($masterUnique as $key => $value)
+		{
+			array_push($masterSingle, $value);
+        }
+        return count($masterSingle);
     }
 
     public function customerCount()

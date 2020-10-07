@@ -163,12 +163,13 @@ class Packing extends CI_Controller {
 		#region getDataNotComplete
 		$myMaster = '';
 		$sangMaster = [];
+		$masterSingle = [];
         $master = $this->product_model->get_master();
 		foreach($master as $k=>$v) 
 		{
 			$new[$k] = $v['no_master'];
 		}
-		$theMaster = array_count_values($new[$k]);
+		$theMaster = array_count_values($new);
 		foreach($theMaster as $dk => $dv)
 		{
 			if($dv < 8)
@@ -176,6 +177,12 @@ class Packing extends CI_Controller {
 				$myMaster = $dk;
 			}
 			array_push($sangMaster, $myMaster);
+		}
+
+		$masterUnique = array_unique($sangMaster);
+		foreach($masterUnique as $key => $value)
+		{
+			array_push($masterSingle, $value);
 		}
 		
 		$list = $this->product_model->get_datatables_not_complete($sangMaster);
@@ -188,17 +195,17 @@ class Packing extends CI_Controller {
 			$row[] = $no;
 			$row[] = $field->no_master;
 			$row[] = $field->no_inner;
+			$row[] = $field->operator;
 			$row[] = $field->tgl;
 			$row[] = $field->waktu;
-			$row[] = $field->operator;
 
 			$data[] = $row;
 		}
 
 		$output = array (
 			"draw" => $_POST['draw'],
-			"recordsTotal" => $this->product_model->count_all(),
-			"recordsFiltered" => $this->product_model->count_filtered(),
+			"recordsTotal" => count($masterSingle),
+			"recordsFiltered" => count($masterSingle),
 			"data" => $data,
 		);
 		echo json_encode($output);

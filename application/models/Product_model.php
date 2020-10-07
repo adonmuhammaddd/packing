@@ -138,6 +138,12 @@ class Product_model extends CI_Model
         return $this->db->count_all_results();
     }
 
+    function count_all_not_complete()
+    {
+        $master = $this->db->from($this->table);
+        return count($master->get()->result_array());
+    }
+
     function view_all()
     {
         $query = $this->db->get('tbl_master');
