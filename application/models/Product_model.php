@@ -21,6 +21,13 @@ class Product_model extends CI_Model
         return $query;
     }
 
+    public function get_array()
+    {
+        $this->db->from($this->table);
+        $query = $this->db->get()->result_array();
+        return $query;
+    }
+
     function saveMaster($table, $data)
     {
         $this->db->insert($table, $data);
@@ -125,6 +132,15 @@ class Product_model extends CI_Model
         return $query; 
     }
 
+    function getInnerByMaster($aMaster)
+    {
+        $this->db->select('no_inner');
+        $this->db->where('no_master', $aMaster);
+        $query = $this->db->get($this->table);
+        return $query->result_array();
+
+    }
+
     function count_filtered()
     {
         $this->_get_datatables_query();
@@ -142,6 +158,16 @@ class Product_model extends CI_Model
     {
         $master = $this->db->from($this->table);
         return count($master->get()->result_array());
+    }
+
+    function count_current_month($currentMonth)
+    {
+        $this->db->select('no_master');
+        $this->db->from($this->table);
+        $this->db->where("DATE_FORMAT(tgl, '%Y-%m'", strtotime($currentMonth));
+        $query = $this->db->get();
+        // $thisMonth = $query->get();
+        return $query;
     }
 
     function view_all()

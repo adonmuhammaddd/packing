@@ -50,7 +50,7 @@
 <section class="content">
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">Packing kWh Prabayar (Tunggakan)</h3>
+            <h3 class="box-title">Pengiriman Prabayar</h3>
             <div class="pull-right">
                 <button class="btn btn-warning btn-flat" onclick="reloadPage()"><i class="fa fa-refresh"></i> Refresh</button>
                 <a href="<?php echo base_url('packing/index');?>" class="btn btn-default btn-flat"><i class="fa fa-chevron-left"></i> Kembali</a>
@@ -61,19 +61,19 @@
                 <input type="hidden" value="" name="id"/> 
                     <div class="row">
                         <div class="col-md-6">
-                            <label for="">No. kWh</label>
+                            <label for="">No. Master</label>
                         </div>
                         <div class="col-md-6">
-                            <label for="">No. Inner</label>
+                            <label for="">Tangga Kirim</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <input class="form-control centerField innerTunggakan mantap" id="innerTunggakan1" type="text" name="no_innerr" size="11" maxlength="11" autocomplete="off" onkeyup="moveOnMax(this,document.getElementById('innerTunggakan11'))"></input>
+                            <input class="form-control" id="master" type="text" size="8" maxlength="8" autocomplete="off" onkeyup="lanjutOnMaxMaster(this)"></input>
                             <span class="help-block"></span>
                         </div>
                         <div class="col-md-6">
-                            <input class="form-control centerField innerTunggakan mantap" id="innerTunggakan11" type="text" name="no_innerr" size="11" maxlength="11" autocomplete="off" onkeyup="lanjutOnMaxInner(this)"></input>
+                            <input class="form-control" id="tglKirim" name="tglKirim" value="<?= date('Y-m-d') ?> " type="text" disabled></input>
                             <span class="help-block"></span>
                         </div>
                     </div>      
@@ -82,12 +82,46 @@
 
                     <div class="form-group">
                         <div class="col-md-12">
-                            <label for="">No. Master</label>
+                            <label for="">No. kWh</label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-md-12">
-                                <input class="form-control centerField" id="masterTunggak" type="text" name="no_masterr" size="8" maxlength="8" disabled></input>
+                        <div class="col-md-6">
+                                <input class="form-control centerField"type="text" id="inner0" name="no_inner" disabled></input>
+                            <span class="help-block"></span>
+                        </div>
+                        <div class="col-md-6">
+                                <input class="form-control centerField"type="text" id="inner1" name="no_inner" disabled></input>
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                                <input class="form-control centerField"type="text" id="inner2" name="no_inner" disabled></input>
+                            <span class="help-block"></span>
+                        </div>
+                        <div class="col-md-6">
+                                <input class="form-control centerField"type="text" id="inner3" name="no_inner" disabled></input>
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                                <input class="form-control centerField"type="text" id="inner4" name="no_inner" disabled></input>
+                            <span class="help-block"></span>
+                        </div>
+                        <div class="col-md-6">
+                                <input class="form-control centerField"type="text" id="inner5" name="no_inner" disabled></input>
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                                <input class="form-control centerField"type="text" id="inner6" name="no_inner" disabled></input>
+                            <span class="help-block"></span>
+                        </div>
+                        <div class="col-md-6">
+                                <input class="form-control centerField"type="text" id="inner7" name="no_inner" disabled></input>
                             <span class="help-block"></span>
                         </div>
                     </div>

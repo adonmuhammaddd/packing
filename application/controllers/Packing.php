@@ -35,6 +35,14 @@ class Packing extends CI_Controller {
 
 		$this->template->load('operator/template', 'operator/packing/packing_data.php');
 	}
+
+	public function indexPengiriman()
+	{
+		$title = 'Melcoinda | Pengiriman';
+        $this->template->title($title);
+
+		$this->template->load('operator/template', 'operator/pengiriman/pengiriman_form.php');
+	}
     
     function save()
 	{
@@ -100,7 +108,7 @@ class Packing extends CI_Controller {
 			));
 		}
 	}
-    
+
     function validasi()
 	{	
         $this->load->model('product_model');
@@ -210,5 +218,13 @@ class Packing extends CI_Controller {
 		);
 		echo json_encode($output);
 		#endregion
+	}
+
+	function get_inner_by_master()
+	{
+		$aMaster = $this->input->post('master');
+		$innerData = $this->product_model->getInnerByMaster($aMaster);
+		
+		echo json_encode($innerData);
 	}
 }

@@ -66,6 +66,15 @@ Class Fungsi
         return count($masterSingle);
     }
 
+    public function prabayarGraph()
+    {
+        $dataGraph = [];
+        $currentMonth = date('Y-m');
+        $this->ci->load->model('product_model');
+        $currentData = $this->ci->product_model->count_current_month($currentMonth);
+        return $currentData;
+    }
+
     public function customerCount()
     {
         $this->ci->load->model('supplier_m');

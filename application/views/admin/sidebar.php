@@ -44,6 +44,18 @@
             <li <?= $this->uri->segment(1) == 'generateseri' ? 'class="active"' : '' ?>><a href="<?= base_url('generateseri');?>"><i class="fa fa-search"></i> Generate Seri</a></li>
           </ul>
         </li>
+        <li class="treeview <?= $this->uri->segment(1) == 'packing' ? 'active' : '' ?>">
+          <a href="#">
+            <i class="fa fa-truck"></i>
+            <span>Pengiriman</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li <?= $this->uri->segment(1) == 'packing' ? 'class="active"' : '' ?>><a href="<?= base_url('packing/indexPengiriman');?>"><i class="fa fa-dashboard"></i> Pengiriman Prabayar</a></li>
+          </ul>
+        </li>
         <!-- <li class="treeview <?= $this->uri->segment(1) == 'sales' || $this->uri->segment(1) == 'stock/in' || $this->uri->segment(1) == 'stock/out' ? 'active' : '' ?>">
           <a href="<?= base_url('transaction');?>">
             <i class="fa fa-cart"></i>

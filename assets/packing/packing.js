@@ -1,15 +1,47 @@
-
 function reloadPage()
 {
     location.reload();
 }
 
-function lanjutOnMax(field) 
+function lanjutOnMaxMaster(field) 
+{ 
+    if (field.value.length >= field.maxLength) 
+    { 
+        getMyInner();
+    }
+}
+
+function lanjutOnMaxInner(field) 
 { 
     if (field.value.length >= field.maxLength) 
     { 
         generateKelompok();
     }
+}
+
+function getMyInner()
+{
+    var master = $('#master').val()
+    $.ajax({
+        url: base_url+'packing/get_inner_by_master',
+        method: 'post',
+        data: {master: master},
+        dataType: 'json',
+        success: function(result){
+            if (result.length == 0)
+            {
+                showDataEmpty(master)
+            }
+            else
+            {
+                for (var i in result)
+                {
+                    // console.log(result[i])
+                    $('#inner'+[i]).val(result[i].no_inner)
+                }
+            }
+          }
+      });
 }
 
 $('#master-1').on('change', onchange);
@@ -196,6 +228,14 @@ var arr_kelompok = [];
     {
         swal({
             title: "Masih ada Nomor Master / Nomor Inner yang kosong!",
+            icon: "error"
+        });
+    }
+
+    function showDataEmpty(master)
+    {
+        swal({
+            title: "Tidak ada data dengan nomor master "+master,
             icon: "error"
         });
     }
