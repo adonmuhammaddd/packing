@@ -16,7 +16,7 @@
             <div class="inner">
               <h3><?= $this->fungsi->scannedCount(); ?></h3>
 
-              <p>Total kWh terpacking</p>
+              <p>Total kWh terpackingggggg</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
